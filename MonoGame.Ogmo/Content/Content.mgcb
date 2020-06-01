@@ -1,0 +1,21 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:Windows
+/config:
+/profile:Reach
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+/reference:..\..\MonoGame.Ogmo.Pipeline\bin\Release\net45\OgmoPipeline.dll
+
+#---------------------------------- Content ---------------------------------#
+
+#begin ../../../../Ogmo/Ogmo1/ogmo1.ogmo
+/importer:OgmoImporter
+/processor:OgmoProcessor
+/build:../../../../Ogmo/Ogmo1/ogmo1.ogmo;ogmo1.ogmo
+

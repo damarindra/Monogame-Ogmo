@@ -1,0 +1,80 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:DesktopGL
+/config:
+/profile:Reach
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+/reference:..\..\MonoGame.Ogmo.Pipeline\bin\Release\net45\MonoGame.Ogmo.Pipeline.dll
+/reference:..\..\MonoGame.Ogmo.Map.Pipeline\bin\Release\net45\MonoGame.Ogmo.Map.Pipeline.dll
+
+#---------------------------------- Content ---------------------------------#
+
+#begin ../../../../Ogmo/Ogmo1/Decals/objects.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../Ogmo/Ogmo1/Decals/objects.png;Decals/objects.png
+
+#begin ../../../../Ogmo/Ogmo1/Graphics/tiles.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../Ogmo/Ogmo1/Graphics/tiles.png;Graphics/tiles.png
+
+#begin ../../../../Ogmo/Ogmo1/lv1.json
+/importer:OgmoMapImporter
+/processor:OgmoMapProcessor
+/build:../../../../Ogmo/Ogmo1/lv1.json;lv1.json
+
+#begin ../../../../Ogmo/Ogmo1/ogmo1.ogmo
+/importer:OgmoImporter
+/processor:OgmoProcessor
+/build:../../../../Ogmo/Ogmo1/ogmo1.ogmo;ogmo1.ogmo
+
+#begin D:/D_Documents/Aseprite/PG_001/objects.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:D:/D_Documents/Aseprite/PG_001/objects.png;objects.png
+
+#begin D:/D_Documents/Aseprite/PG_001/tiles.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:D:/D_Documents/Aseprite/PG_001/tiles.png;tiles.png
+
+#begin test1.json
+/importer:OgmoMapImporter
+/processor:OgmoMapProcessor
+/build:test1.json
+
