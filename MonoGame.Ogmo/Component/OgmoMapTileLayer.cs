@@ -60,8 +60,8 @@ namespace MonoGame.Ogmo.Component
 		/// <returns></returns>
 		protected Vector2 IndexToWorldCoordinate(int i)
 		{
-			return IndexToLayerXY(i) * new Vector2(TileLayer.LayerDefinition.GridCellSize.X,
-				TileLayer.LayerDefinition.GridCellSize.Y);
+			return IndexConverter.IndexToXYByCount(i, TileLayer.LayerDefinition.GridCellCount.X).ToVector2()
+			       * new Vector2(TileLayer.LayerDefinition.GridCellSize.X, TileLayer.LayerDefinition.GridCellSize.Y);
 		}
 
 		/// <summary>

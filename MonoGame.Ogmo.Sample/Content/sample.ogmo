@@ -1,0 +1,42 @@
+{
+  "name": "New Project",
+  "ogmoVersion": "3.3.0",
+  "levelPaths": ["."],
+  "backgroundColor": "#282c34ff",
+  "gridColor": "#3c4049cc",
+  "anglesRadians": true,
+  "directoryDepth": 5,
+  "layerGridDefaultSize": {"x": 8, "y": 8},
+  "levelDefaultSize": {"x": 320, "y": 240},
+  "levelMinSize": {"x": 128, "y": 128},
+  "levelMaxSize": {"x": 4096, "y": 4096},
+  "levelValues": [],
+  "defaultExportMode": ".json",
+  "compactExport": false,
+  "externalScript": "",
+  "playCommand": "",
+  "entityTags": [],
+  "layers": [
+    {
+      "definition": "tile",
+      "name": "grounds",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "07914431",
+      "exportMode": 0,
+      "arrayMode": 0,
+      "defaultTileset": "tileset"
+    },
+    {
+      "definition": "grid",
+      "name": "collider",
+      "gridSize": {"x": 8, "y": 8},
+      "exportID": "07917783",
+      "arrayMode": 0,
+      "legend": {"0": "#00000000", "1": "#000000ff"}
+    }
+  ],
+  "entities": [],
+  "tilesets": [
+    {"label": "tileset", "path": "cavesofgallet_tiles.png", "image": "data:image/png;base64,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", "tileWidth": 8, "tileHeight": 8, "tileSeparationX": 0, "tileSeparationY": 0}
+  ]
+}

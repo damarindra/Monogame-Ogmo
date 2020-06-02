@@ -35,10 +35,10 @@ namespace MonoGame.Ogmo.Sample
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			// TODO: use this.Content to load your game content here
-			_ogmoSettings = Content.Load<OgmoSettings>("ogmo1");
+			_ogmoSettings = Content.Load<OgmoSettings>("sample");
 			Console.WriteLine(_ogmoSettings.TileLayers.Length);
 
-			_tilesetTexture = Content.Load<Texture2D>("tiles");
+			_tilesetTexture = Content.Load<Texture2D>("cavesofgallet_tiles");
 
 			_ogmoMap = Content.Load<OgmoMap>("lv1");
 			_ogmoMapTileLayer = new OgmoMapTileLayer(_ogmoMap.MapSize, _ogmoMap.MapOffset, _ogmoMap.TilesLayers[0],
