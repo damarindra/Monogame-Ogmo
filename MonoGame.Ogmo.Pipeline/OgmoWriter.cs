@@ -4,8 +4,7 @@ using TWrite = MonoGame.Ogmo.Pipeline.Models.Ogmo;
 using System.Linq;
 using MonoGame.Ogmo.Pipeline.Models;
 
-// TODO rename namespace
-namespace OgmoPipeline
+namespace MonoGame.Ogmo.Pipeline
 {
 	[ContentTypeWriter]
 	public class OgmoWriter : ContentTypeWriter<TWrite>

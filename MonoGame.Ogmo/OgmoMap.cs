@@ -2,14 +2,24 @@
 
 namespace MonoGame.Ogmo
 {
-	public class OgmoMap
+	public struct OgmoMap
 	{
-		public Point MapSize;
-		public Point MapOffset;
+		public Point MapSize { get; }
+		public Point MapOffset { get; }
 		
-		public OgmoTilesLayer[] TilesLayers;
-		public OgmoEntityLayer[] EntityLayers;
-		public OgmoGridLayer[] GridLayers;
+		public OgmoTileLayer[] TilesLayers { get; }
+		public OgmoEntityLayer[] EntityLayers { get; }
+		public OgmoGridLayer[] GridLayers { get; }
+
+		public OgmoMap(Point mapSize, Point mapOffset, OgmoTileLayer[] tilesLayers, 
+			OgmoEntityLayer[] entityLayers, OgmoGridLayer[] gridLayers)
+		{
+			MapSize = mapSize;
+			MapOffset = mapOffset;
+			TilesLayers = tilesLayers;
+			EntityLayers = entityLayers;
+			GridLayers = gridLayers;
+		}
 	}
 
 	public struct OgmoLayerDefinition
@@ -28,13 +38,13 @@ namespace MonoGame.Ogmo
 		public Point GridCellCount { get; }
 	}
 
-	public struct OgmoTilesLayer
+	public struct OgmoTileLayer
 	{
 		public OgmoLayerDefinition LayerDefinition { get; }
 		public string Tileset { get; }
 		public int[] Data { get; }
 
-		public OgmoTilesLayer(OgmoLayerDefinition layerDefinition, string tileset, int[] data)
+		public OgmoTileLayer(OgmoLayerDefinition layerDefinition, string tileset, int[] data)
 		{
 			LayerDefinition = layerDefinition;
 			Tileset = tileset;

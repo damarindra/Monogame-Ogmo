@@ -2,61 +2,70 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Ogmo.Component;
 
 namespace MonoGame.Ogmo.Sample
 {
-    public class Game1 : Game
-    {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+	public class Game1 : Game
+	{
+		private GraphicsDeviceManager _graphics;
+		private SpriteBatch _spriteBatch;
 
-        private OgmoSettings _ogmoSettings;
-        private Texture2D _tilesetTexture;
-        private OgmoMap _ogmoMap;
-        public Game1()
-        {
-            _graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
-            IsMouseVisible = true;
-        }
+		private OgmoSettings _ogmoSettings;
+		private Texture2D _tilesetTexture;
+		private OgmoMap _ogmoMap;
+		private OgmoMapTileLayer _ogmoMapTileLayer;
 
-        protected override void Initialize()
-        {
-            // TODO: Add your initialization logic here
+		public Game1()
+		{
+			_graphics = new GraphicsDeviceManager(this);
+			Content.RootDirectory = "Content";
+			IsMouseVisible = true;
+		}
 
-            base.Initialize();
-        }
+		protected override void Initialize()
+		{
+			// TODO: Add your initialization logic here
 
-        protected override void LoadContent()
-        {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+			base.Initialize();
+		}
 
-            // TODO: use this.Content to load your game content here
-            _ogmoSettings = Content.Load<OgmoSettings>("ogmo1");
-            Console.WriteLine(_ogmoSettings.TileLayers.Length);
+		protected override void LoadContent()
+		{
+			_spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _tilesetTexture = Content.Load<Texture2D>("tiles");
+			// TODO: use this.Content to load your game content here
+			_ogmoSettings = Content.Load<OgmoSettings>("ogmo1");
+			Console.WriteLine(_ogmoSettings.TileLayers.Length);
 
-            _ogmoMap = Content.Load<OgmoMap>("lv1");
-        }
+			_tilesetTexture = Content.Load<Texture2D>("tiles");
 
-        protected override void Update(GameTime gameTime)
-        {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+			_ogmoMap = Content.Load<OgmoMap>("lv1");
+			_ogmoMapTileLayer = new OgmoMapTileLayer(_ogmoMap.MapSize, _ogmoMap.MapOffset, _ogmoMap.TilesLayers[0],
+				new OgmoTileset(_ogmoSettings.TilesetSettings[0], _tilesetTexture));
+		}
 
-            // TODO: Add your update logic here
+		protected override void Update(GameTime gameTime)
+		{
+			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
+			    Keyboard.GetState().IsKeyDown(Keys.Escape))
+				Exit();
 
-            base.Update(gameTime);
-        }
+			// TODO: Add your update logic here
 
-        protected override void Draw(GameTime gameTime)
-        {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+			base.Update(gameTime);
+		}
 
-            // TODO: Add your drawing code here
+		protected override void Draw(GameTime gameTime)
+		{
+			GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            base.Draw(gameTime);
-        }
-    }
+			// TODO: Add your drawing code here
+			_spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+			_ogmoMapTileLayer.Draw(_spriteBatch);
+			_spriteBatch.End();
+
+			base.Draw(gameTime);
+		}
+	}
 }

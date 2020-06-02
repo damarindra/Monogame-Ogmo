@@ -46,11 +46,11 @@ namespace MonoGame.Ogmo
 			arrayCount = (int)input.ReadInt32();
 			
 			// Input Tileset
-			result.TilesetSettings = new OgmoTilesetSettings[arrayCount];
+			result.TilesetSettings = new OgmoTilesetSetting[arrayCount];
 
 			for (int i = 0; i < arrayCount; i++)
 			{
-				result.TilesetSettings[i] = new OgmoTilesetSettings(input.ReadString(),
+				result.TilesetSettings[i] = new OgmoTilesetSetting(input.ReadString(),
 					new Point((int)input.ReadInt32(), (int)input.ReadInt32()),
 					new Point((int)input.ReadInt32(), (int)input.ReadInt32()),
 					input.ReadString());

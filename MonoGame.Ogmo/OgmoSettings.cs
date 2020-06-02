@@ -3,19 +3,25 @@ using Microsoft.Xna.Framework;
 
 namespace MonoGame.Ogmo
 {
+	/// <summary>
+	/// Ogmo Settings, .ogmo file reader.
+	/// Why we need this? to automate the tileset settings, so it will consistent between ogmo and monogame
+	/// Layer ? I don't know, do we need it ? I think not.
+	/// Why not create the Tileset directly, without needing this library. Yes you are right.
+	/// </summary>
 	public class OgmoSettings
 	{
 		public OgmoLayerSettings[] TileLayers;
 		public OgmoLayerSettings[] EntityLayers;
 		public OgmoLayerSettings[] GridLayers;
 
-		public OgmoTilesetSettings[] TilesetSettings;
+		public OgmoTilesetSetting[] TilesetSettings;
 		public OgmoEntitySettings[] EntitySettings;
 
-		public bool TryGetTilesetSettings(string label, out OgmoTilesetSettings? val)
+		public bool TryGetTilesetSettings(string label, out OgmoTilesetSetting? val)
 		{
 			val = null;
-			foreach (OgmoTilesetSettings tilesetSettingse in TilesetSettings)
+			foreach (OgmoTilesetSetting tilesetSettingse in TilesetSettings)
 			{
 				if (tilesetSettingse.Label == label)
 				{
@@ -69,14 +75,14 @@ namespace MonoGame.Ogmo
 		}
 	}
 
-	public struct OgmoTilesetSettings
+	public struct OgmoTilesetSetting
 	{
 		public string Label { get; }
 		public Point TileSize { get; }
 		public Point TileSeparation { get; }
 		public string Path { get; }
 
-		public OgmoTilesetSettings(string label, Point tileSize, Point tileSeparation, string path)
+		public OgmoTilesetSetting(string label, Point tileSize, Point tileSeparation, string path)
 		{
 			Label = label;
 			TileSize = tileSize;

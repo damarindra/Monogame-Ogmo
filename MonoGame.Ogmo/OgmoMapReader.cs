@@ -8,15 +8,13 @@ namespace MonoGame.Ogmo
 	{
 		protected override OgmoMap Read(ContentReader input, OgmoMap existingInstance)
 		{
-			OgmoMap result = new OgmoMap();
-			
-			result.MapSize = new Point(input.ReadInt32(), input.ReadInt32());
-			result.MapOffset = new Point(input.ReadInt32(), input.ReadInt32());
+			var mapSize = new Point(input.ReadInt32(), input.ReadInt32());
+			var mapOffset = new Point(input.ReadInt32(), input.ReadInt32());
 
 			// TILES LAYER
-			result.TilesLayers = new OgmoTilesLayer[input.ReadInt32()];
+			var tilesLayers = new OgmoTileLayer[input.ReadInt32()];
 
-			for (int i = 0; i < result.TilesLayers.Length; i++)
+			for (int i = 0; i < tilesLayers.Length; i++)
 			{
 				string name = input.ReadString();
 				Point offset = new Point(input.ReadInt32(), input.ReadInt32());
@@ -32,14 +30,14 @@ namespace MonoGame.Ogmo
 					data[j] = input.ReadInt32();
 				}
 				
-				result.TilesLayers[i] = new OgmoTilesLayer(layerDefinition, tileset, data);
+				tilesLayers[i] = new OgmoTileLayer(layerDefinition, tileset, data);
 			}
 			
 			
 			// ENTITY LAYERS
-			result.EntityLayers = new OgmoEntityLayer[input.ReadInt32()];
+			var entityLayers = new OgmoEntityLayer[input.ReadInt32()];
 
-			for (int i = 0; i < result.EntityLayers.Length; i++)
+			for (int i = 0; i < entityLayers.Length; i++)
 			{
 				string name = input.ReadString();
 				Point offset = new Point(input.ReadInt32(), input.ReadInt32());
@@ -64,14 +62,14 @@ namespace MonoGame.Ogmo
 					entities[j] = new OgmoEntity(eName, ePosition, eOrigin, new EntityValues(vRectangle, vImageName, vCollision));
 				}
 				
-				result.EntityLayers[i] = new OgmoEntityLayer(layerDefinition, entities);
+				entityLayers[i] = new OgmoEntityLayer(layerDefinition, entities);
 			}
 			
 			
 			//GRID LAYERS
-			result.GridLayers = new OgmoGridLayer[input.ReadInt32()];
+			 var gridLayers = new OgmoGridLayer[input.ReadInt32()];
 
-			for (int i = 0; i < result.GridLayers.Length; i++)
+			for (int i = 0; i < gridLayers.Length; i++)
 			{
 				string name = input.ReadString();
 				Point offset = new Point(input.ReadInt32(), input.ReadInt32());
@@ -85,10 +83,10 @@ namespace MonoGame.Ogmo
 					grid[j] = input.ReadInt32();
 				}
 				
-				result.GridLayers[i] = new OgmoGridLayer(layerDefinition, grid);
+				gridLayers[i] = new OgmoGridLayer(layerDefinition, grid);
 			}
 
-			return result;
+			return new OgmoMap(mapSize, mapOffset, tilesLayers, entityLayers, gridLayers);
 		}
 	}
 }
